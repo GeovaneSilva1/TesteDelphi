@@ -37,10 +37,16 @@ begin
   while not dmControl.qrPrincipal.Eof do
   begin
     dmControl.qrPrincipal.Edit;
-    if dmControl.qrPrincipal.FieldByName('bdIdVenda').AsInteger = 1 then
-       dmControl.qrPrincipal.FieldByName('bdValorTotal').AsFloat := 233.54;
+    if dmControl.qrPrincipal.FieldByName('bdVendedor').AsString = 'Vendedor 01' then
+       dmControl.qrPrincipal.FieldByName('bdIdVendedor').AsInteger := 1
+    else
+    if dmControl.qrPrincipal.FieldByName('bdVendedor').AsString = 'Vendedor 02' then
+       dmControl.qrPrincipal.FieldByName('bdIdVendedor').AsInteger := 2
+    else
+       dmControl.qrPrincipal.FieldByName('bdIdVendedor').AsInteger := 3;
 
     dmControl.qrPrincipal.Post;
+
     dmControl.qrPrincipal.Next;
   end;
 
