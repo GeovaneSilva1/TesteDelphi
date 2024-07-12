@@ -29,9 +29,21 @@ uses udmControl;
 procedure TfrPrincipal.Button1Click(Sender: TObject);
 begin
   dmControl.qrPrincipal.Close;
-  dmControl.qrPrincipal.SQL.Add('select * from vendedor');
+  dmControl.qrPrincipal.SQL.Add('select * from Vendas');
   dmControl.qrPrincipal.SQL.Text;
   dmControl.qrPrincipal.Open;
+
+  dmControl.qrPrincipal.First;
+  while not dmControl.qrPrincipal.Eof do
+  begin
+    dmControl.qrPrincipal.Edit;
+    if dmControl.qrPrincipal.FieldByName('bdIdVenda').AsInteger = 1 then
+       dmControl.qrPrincipal.FieldByName('bdValorTotal').AsFloat := 233.54;
+
+    dmControl.qrPrincipal.Post;
+    dmControl.qrPrincipal.Next;
+  end;
+
 end;
 
 end.

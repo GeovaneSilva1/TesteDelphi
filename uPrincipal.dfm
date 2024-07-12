@@ -2,8 +2,8 @@ object frPrincipal: TfrPrincipal
   Left = 0
   Top = 0
   Caption = 'Relat'#243'rio de Vendas'
-  ClientHeight = 301
-  ClientWidth = 542
+  ClientHeight = 408
+  ClientWidth = 552
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,15 +16,13 @@ object frPrincipal: TfrPrincipal
   object Panel1: TPanel
     Left = 0
     Top = 0
-    Width = 542
-    Height = 301
+    Width = 552
+    Height = 408
     Align = alClient
     Caption = 'Panel1'
     TabOrder = 0
-    ExplicitLeft = 272
-    ExplicitTop = 72
-    ExplicitWidth = 185
-    ExplicitHeight = 41
+    ExplicitWidth = 542
+    ExplicitHeight = 301
     object Button1: TButton
       Left = 232
       Top = 144
