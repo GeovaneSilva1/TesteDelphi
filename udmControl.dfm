@@ -1,16 +1,16 @@
 object dmControl: TdmControl
-  OldCreateOrder = False
   Height = 227
   Width = 249
   object conexao: TADOConnection
-    Connected = True
     ConnectionString = 
-      'Provider=SQLOLEDB.1;Password=benner@2021@;Persist Security Info=' +
-      'True;User ID=sa;Initial Catalog=TesteDelphi;Data Source=BNU-NT00' +
-      '5742\SQLEXPRESS'
+      'Provider=SQLOLEDB.1;Password=masterkey;Persist Security Info=Tru' +
+      'e;User ID=sa;Initial Catalog=TesteDelphi;Data Source=DESKTOP-74J' +
+      '9NVH\SQLSERVER2024;Use Procedure for Prepare=1;Auto Translate=Tr' +
+      'ue;Packet Size=4096;Workstation ID=DESKTOP-74J9NVH;Use Encryptio' +
+      'n for Data=False;Tag with column collation when possible=False'
     KeepConnection = False
     LoginPrompt = False
-    Provider = 'SQLOLEDB'
+    Provider = 'SQLOLEDB.1'
     Left = 104
     Top = 32
   end
