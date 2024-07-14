@@ -21,3 +21,7 @@ Obs: Caso não funcione o passo 4
 8. teste a conexão > caso bem sucedida clique em OK
 
 Qualquer dúvida: geovanealu@gmail.com
+
+
+#Sobre o cálculo da comissão, fiz da forma simplificada de 10% para todos. Até fiz a rotina nos fontes para calcular a comissão da forma
+normal, porém tive dificuldades de fazer a integração dessas rotinas com meu .fr3 (não conheço muito a ferramenta que usei).

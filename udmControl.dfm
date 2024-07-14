@@ -18,6 +18,11 @@ object dmControl: TdmControl
     Connection = conexao
     CursorType = ctStatic
     Parameters = <>
+    SQL.Strings = (
+      'SELECT *'
+      'FROM Vendas'
+      'ORDER BY bdIdVendedor,'
+      'bdData')
     Left = 104
     Top = 96
   end

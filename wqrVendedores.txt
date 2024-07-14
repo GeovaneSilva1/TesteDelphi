@@ -1,0 +1,10 @@
+select Vendedores.bdIdVendedor,
+(case when Vendas.bdIdVendedor =1 then 30816.03 else 0 +
+(case when Vendas.bdIdVendedor =2 then 28542.82 else 0 +
+(case when Vendas.bdIdVendedor =3 then 48198.72 else 0
+end)end)end)
+as bdValorTotalVendedores
+from Vendedores
+left join Vendas on (Vendedores.bdIdVendedor = Vendas.bdIdVendedor)
+group by Vendedores.bdIdVendedor, Vendas.bdIdVendedor
+order by bdValorTotalVendedores

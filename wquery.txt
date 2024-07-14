@@ -1,0 +1,7 @@
+SELECT *
+FROM Vendas
+WHERE bdData BETWEEN 
+'2023-04-01'AND'2023-04-30'
+ANDbdIdVendedor in (1)
+ORDER BY bdIdVendedor,
+bdData
