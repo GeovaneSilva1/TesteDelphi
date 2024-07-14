@@ -26,17 +26,17 @@ object frPrincipal: TfrPrincipal
     Padding.Right = 3
     Padding.Bottom = 3
     TabOrder = 0
-    ExplicitLeft = -2
-    ExplicitTop = -2
+    ExplicitWidth = 309
+    ExplicitHeight = 255
     object lbDatIni: TLabel
       Left = 24
-      Top = 59
+      Top = 60
       Width = 51
       Height = 13
       Caption = 'Data inicial'
     end
     object lbDatFin: TLabel
-      Left = 159
+      Left = 162
       Top = 59
       Width = 46
       Height = 13
@@ -79,9 +79,9 @@ object frPrincipal: TfrPrincipal
       Text = '  /  /    '
     end
     object rgOrdenar: TRadioGroup
-      Left = 24
+      Left = 18
       Top = 83
-      Width = 257
+      Width = 263
       Height = 62
       Caption = 'Ordernar Por'
       Columns = 2
@@ -92,7 +92,7 @@ object frPrincipal: TfrPrincipal
       TabOrder = 3
     end
     object ckTotalGrupo: TCheckBox
-      Left = 184
+      Left = 200
       Top = 166
       Width = 97
       Height = 17
@@ -102,7 +102,7 @@ object frPrincipal: TfrPrincipal
       TabOrder = 4
     end
     object ckTotalGeral: TCheckBox
-      Left = 24
+      Left = 18
       Top = 166
       Width = 97
       Height = 17
@@ -116,6 +116,8 @@ object frPrincipal: TfrPrincipal
       Top = 21
       Width = 200
       Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 6
       Text = 'Todos'
       Items.Strings = (
@@ -131,7 +133,7 @@ object frPrincipal: TfrPrincipal
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45485.866841550900000000
-    ReportOptions.LastChange = 45486.921638495370000000
+    ReportOptions.LastChange = 45487.464762569440000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'var      '
@@ -288,7 +290,7 @@ object frPrincipal: TfrPrincipal
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 37.795300000000000000
+        Height = 71.811070000000000000
         Top = 374.173470000000000000
         Width = 718.110700000000000000
         object Memo19: TfrxMemoView
@@ -700,9 +702,23 @@ object frPrincipal: TfrPrincipal
         FillGap.Bottom = 0
         FillGap.Right = 0
         Frame.Typ = []
-        Height = 22.677180000000000000
-        Top = 472.441250000000000000
+        Height = 18.897650000000000000
+        Top = 506.457020000000000000
         Width = 718.110700000000000000
+        object Page: TfrxMemoView
+          IndexTag = 1
+          Align = baRight
+          AllowVectorExport = True
+          Left = 634.961057773437500000
+          Width = 83.149660000000000000
+          Height = 18.897650000000000000
+          ContentScaleOptions.Constraints.MaxIterationValue = 0
+          ContentScaleOptions.Constraints.MinIterationValue = 0
+          Frame.Typ = []
+          HAlign = haRight
+          Memo.UTF8W = (
+            'P'#225'g. [Page#]')
+        end
       end
       object PageFooter1: TfrxPageFooter
         FillType = ftBrush
@@ -712,8 +728,12 @@ object frPrincipal: TfrPrincipal
         FillGap.Right = 0
         Frame.Typ = []
         Height = 22.677180000000000000
-        Top = 517.795610000000000000
+        Top = 548.031850000000000000
         Width = 718.110700000000000000
+      end
+      object TfrxMemoView
+        AllowVectorExport = True
+        Frame.Typ = []
       end
     end
   end
