@@ -26,8 +26,8 @@ object frPrincipal: TfrPrincipal
     Padding.Right = 3
     Padding.Bottom = 3
     TabOrder = 0
-    ExplicitLeft = -2
-    ExplicitTop = -2
+    ExplicitWidth = 309
+    ExplicitHeight = 255
     object lbDatIni: TLabel
       Left = 24
       Top = 60
@@ -116,6 +116,8 @@ object frPrincipal: TfrPrincipal
       Top = 21
       Width = 200
       Height = 21
+      Style = csDropDownList
+      ItemIndex = 0
       TabOrder = 6
       Text = 'Todos'
       Items.Strings = (

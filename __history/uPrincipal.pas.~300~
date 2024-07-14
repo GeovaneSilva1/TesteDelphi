@@ -68,7 +68,6 @@ uses udmControl;
 
 procedure TfrPrincipal.btGerarRelClick(Sender: TObject);
 begin
-
   dmControl.qrPrincipal.Close;
   dmControl.qrPrincipal.SQL.Clear;
   dmControl.qrPrincipal.SQL.Add('SELECT *');
@@ -77,6 +76,7 @@ begin
   pFazWhereData;
 
   if cbListaVendedores.ItemIndex > 0 then
+     dmControl.qrPrincipal.SQL.Add(fGetAndWhere(dmControl.qrPrincipal.SQL.Text) + ' bdIdVendedor in ' + '(' +IntToStr(cbListaVendedores.ItemIndex)+ ')');
 
 
   dmControl.qrPrincipal.SQL.Add('ORDER BY bdIdVendedor,');
@@ -87,13 +87,11 @@ begin
     1: begin
          dmControl.qrPrincipal.SQL.Add('bdValorTotal');
        end;
-
   end;
 
   dmControl.qrPrincipal.Open;
 
   //pFazProcessoComissao;
-
 
   DeleteFile(vDiretorioRaiz + 'RelVendas.fr3');
   if not FileExists(vDiretorioRaiz + 'RelVendas.fr3') then
@@ -147,20 +145,20 @@ begin
        wDataInicial := FormatDateTime('YYYY-MM-DD',StrToDate(edDataInicial.Text));
        wDataFinal   := FormatDateTime('YYYY-MM-DD',StrToDate(edDataFinal.Text));
 
-       dmControl.qrPrincipal.SQL.Add('WHERE' + ' bdData BETWEEN ');
-       dmControl.qrPrincipal.SQL.Add(QuotedStr(wDataInicial) + 'AND' + QuotedStr(wDataFinal));
+       dmControl.qrPrincipal.SQL.Add(fGetAndWhere(dmControl.qrPrincipal.SQL.Text) + ' bdData BETWEEN ');
+       dmControl.qrPrincipal.SQL.Add(QuotedStr(wDataInicial) + fGetAndWhere(dmControl.qrPrincipal.SQL.Text) + QuotedStr(wDataFinal));
      end
   else
   if (StringReplace( StringReplace(edDataInicial.Text,'/','',[rfReplaceAll]),' ','',[rfReplaceAll]) <> '') then
      begin
        wDataInicial := FormatDateTime('YYYY-MM-DD',StrToDate(edDataInicial.Text));
-       dmControl.qrPrincipal.SQL.Add('WHERE' + ' bdData >=' + QuotedStr(wDataInicial));
+       dmControl.qrPrincipal.SQL.Add(fGetAndWhere(dmControl.qrPrincipal.SQL.Text) + ' bdData >=' + QuotedStr(wDataInicial));
      end
   else
   if (StringReplace( StringReplace(edDataFinal.Text,'/','',[rfReplaceAll]),' ','',[rfReplaceAll]) <> '') then
      begin
        wDataFinal := FormatDateTime('YYYY-MM-DD',StrToDate(edDataFinal.Text));
-       dmControl.qrPrincipal.SQL.Add('WHERE' + ' bdData <=' + QuotedStr(wDataFinal));
+       dmControl.qrPrincipal.SQL.Add(fGetAndWhere(dmControl.qrPrincipal.SQL.Text) + ' bdData <=' + QuotedStr(wDataFinal));
      end;
 end;
 
@@ -302,7 +300,6 @@ begin
 
 
 end;
-
 
 procedure TfrPrincipal.FormCreate(Sender: TObject);
 begin

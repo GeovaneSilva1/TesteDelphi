@@ -228,11 +228,9 @@ begin
 
         dmControl.qrPrincipal.Next;
       end;
-
     for wI := 0 to wslValoresVendedores.Count-1 do
       begin
         wCampoVirtualTotais := wslValoresVendedores[wI] + ': ' + FloatToStr(TVendedor(wslValoresVendedores.Objects[wI]).ValorTotal);
-
         wCampoVirtualTotais := '(case when Vendas.bdIdVendedor =' + wslValoresVendedores[wI] +
                                ' then ' + StringReplace(floatToStr(TVendedor(wslValoresVendedores.Objects[wI]).ValorTotal),',','.',[rfReplaceAll]) +
                                ' else 0 +';
@@ -241,27 +239,20 @@ begin
                                   ' then ' + StringReplace(floatToStr(TVendedor(wslValoresVendedores.Objects[wI]).ValorTotal),',','.',[rfReplaceAll]) +
                                   ' else 0';
 
-
         qrVendedores.SQL.Add(wCampoVirtualTotais);
-
         wEnds := wEnds + 'end)';
       end;
-
     qrVendedores.SQL.Add(wEnds);
     qrVendedores.SQL.Add('as bdValorTotalVendedores');
     qrVendedores.SQL.Add('from Vendedores');
-
     qrVendedores.SQL.Add('left join Vendas on (Vendedores.bdIdVendedor = Vendas.bdIdVendedor)');
     qrVendedores.SQL.Add('group by Vendedores.bdIdVendedor, Vendedores.bdVendedor, Vendas.bdIdVendedor');
     qrVendedores.SQL.Add('order by bdValorTotalVendedores');
-
     qrVendedores.Open;
-
     qrVendedores.First;
     while not qrVendedores.Eof do
       begin
         {cdsDadosVendedores.Insert;
-
         cdsDadosVendedores.FieldByName('bdIdVendedor').AsInteger         := qrVendedores.FieldByName('bdIdVendedor').AsInteger;
         cdsDadosVendedores.FieldByName('bdVendedor').AsString            := qrVendedores.FieldByName('bdVendedor').AsString;
         cdsDadosVendedores.FieldByName('bdValorTotalVendedores').AsFloat := qrVendedores.FieldByName('bdValorTotalVendedores').AsFloat;
@@ -283,17 +274,13 @@ begin
              wValComissao := fCalculaComissao(qrVendedores.FieldByName('bdValorTotalVendedores').AsFloat,cDezPer);
              //cdsDadosVendedores.FieldByName('bdValorComissao').AsFloat := wValComissao;
            end;
-
         //cdsDadosVendedores.Post;
-
         qrVendedores.Next;
       end;
-
       //frxDadosVendedores.DataSet := cdsDadosVendedores;
   finally
     for wI := 0 to wslValoresVendedores.Count - 1 do
       wslValoresVendedores.Objects[wI].Free;
-
     wslValoresVendedores.Free;
     //cdsDadosVendedores.Free;
   end;
